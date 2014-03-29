@@ -50,22 +50,22 @@ def modify_contact
   when 1
     puts "What would you like to change the first name to?"
     new_first_name = gets.chomp
-    rolodex.modify_contact(id, new_first_name)
+    @rolodex.modify_contact(id, new_first_name, new_last_name, new_email, new_note)
 
   when 2
     puts "What would you like to change the last name to?"
     new_last_name = gets.chomp
-    rolodex.modify_contact(id, new_last_name)
+    @rolodex.modify_contact(id, new_first_name, new_last_name, new_email, new_note)
 
   when 3
     puts "What would you like to change the e-mail to?"
     new_email = gets.chomp
-    rolodex.modify_contact(id,new_email)
+    @rolodex.modify_contact(id, new_first_name, new_last_name, new_email, new_note)
 
   when 4
     puts "What would you like to change the notes to?"
     new_note = gets.chomp
-    @rolodex.modify_contact(id, new_note)
+    @rolodex.modify_contact(id, new_first_name, new_last_name, new_email, new_note)
   end
 end
 
