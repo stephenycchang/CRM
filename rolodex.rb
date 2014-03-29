@@ -25,4 +25,10 @@ class Rolodex
       puts contact
     end
   end
+
+  def delete_contact(id)
+    @contacts.delete_if { |c| c.id == id}
+
+  end
+
 end

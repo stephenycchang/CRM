@@ -1,7 +1,7 @@
 class Contact
 
   @@counter = 1000
-  
+
   attr_accessor :first_name, :last_name, :email, :note, :id
 
   def initialize(first_name, last_name, email, note)
@@ -14,6 +14,6 @@ class Contact
   end
 
   def to_s
-    " ID: #{id}\n First Name: #{first_name}\n Last Name: #{last_name}\n E-mail: #{email}\n Notes: #{note}"
+    " User ID: #{id}\n First Name: #{first_name}\n Last Name: #{last_name}\n E-mail: #{email}\n Notes: #{note}"
   end
 end
