@@ -54,6 +54,7 @@ def get_user_input(attribute_name)
 end
 
 def modify_contact
+  @rolodex.show_contacts
   puts "Which contact id would you like to change?"
   id = gets.chomp.to_i
 
@@ -93,7 +94,7 @@ def modify_contact
       @rolodex.modify_contact(id, nil, nil, nil, new_note)
     end
 
-  else main_menu
+  else print_main_menu
 
   end
 
@@ -159,7 +160,7 @@ def main_menu
       display_contact
     elsif input == 5
       display_attribute
-    elsif input == 6
+    elsif input == 6 || input == exit.to_s
       done = true
     end
   end
