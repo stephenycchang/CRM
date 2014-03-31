@@ -18,35 +18,49 @@ class Runner
   end
 
 #Check if there is an input#
-
 def add_contact
-  puts "Please enter first name!"
-  first_name = gets.chomp
-  return add_contact if first_name == ""
+  # puts "Please enter first name!"
+  # first_name = gets.chomp
+  # return add_contact if first_name == ""
 
-  puts "Please enter last name!"
-  last_name = gets.chomp
-  return add_contact if last_name == ""
+  # puts "Please enter last name!"
+  # last_name = gets.chomp
+  # return add_contact if last_name == ""
 
-  puts "Please enter e-mail address!"
-  email = gets.chomp
-  return add_contact if email == ""
+  # puts "Please enter e-mail address!"
+  # email = gets.chomp
+  # return add_contact if email == ""
 
-  puts "Enter a note"
-  note = gets.chomp
-  return add_contact if note == ""
+  # puts "Enter a note"
+  # note = gets.chomp
+  # return add_contact if note == ""
+  first_name = get_user_input("first name")
+  last_name = get_user_input("last name")
+  email = get_user_input("e-mail")
+  note = get_user_input("note")
 
   @rolodex.create_contact(first_name, last_name, email, note)
+end
+
+#Validation method
+
+def get_user_input(attribute_name)
+  user_input = nil
+  while user_input.nil? || user_input.empty?
+    puts "Please enter #{attribute_name}!"
+    user_input = gets.chomp
+  end
+  return user_input
 end
 
 def modify_contact
   puts "Which contact id would you like to change?"
   id = gets.chomp.to_i
 
-  puts "Are you sure?"
+  puts "Are you sure? Please type 'yes' to continue or 'no' to go back to the main menu"
   go_ahead = gets.chomp.downcase
 
-  if go_ahead == "yes" || go_ahead == "yeah" || go_ahead == "y"
+  if go_ahead == "yes" || go_ahead == "yeah" || go_ahead == "y" || go_ahead == "ya"
 
     puts "Please select which item to change."
     puts "[1] Change the first name."
@@ -89,6 +103,8 @@ end
 
 
 def delete_contact
+  puts "-----All Contacts-----"
+  @rolodex.show_contacts
   puts "Which contact would you like to delete? (Please enter ID)"
   id = gets.chomp.to_i
   @rolodex.delete_contact(id)
