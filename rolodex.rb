@@ -12,10 +12,10 @@ class Rolodex
   def modify_contact(id, new_first_name, new_last_name, new_email, new_note)
     @contacts.each do |contact|
       if contact.id == id
-        contact.first_name = new_first_name
-        contact.last_name = new_last_name
-        contact.email = new_email
-        contact.note = new_note
+        contact.first_name = new_first_name if new_first_name != nil
+        contact.last_name = new_last_name if new_last_name != nil
+        contact.email = new_email if new_email != nil
+        contact.note = new_note if new_note != nil
       end
     end  
   end
@@ -31,4 +31,27 @@ class Rolodex
 
   end
 
+  def show_first_name 
+    @contacts.each do |contact|
+      puts "User #{contact.number}\n#{contact.firstname}"
+    end
+  end
+
+  def show_last_name
+    @contacts.each do |contact|
+      puts contact.lastname
+    end
+  end
+
+  def show_email
+    @contacts.each do |contact|
+      puts contact.e_mail
+    end
+  end
+
+  def show_notes
+    @contacts.each do |contact|
+      puts contact.paper
+    end
+  end
 end

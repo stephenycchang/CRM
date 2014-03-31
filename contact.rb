@@ -13,6 +13,26 @@ class Contact
     @id = @@counter
   end
 
+  def firstname
+    @first_name
+  end
+
+  def lastname
+    @last_name
+  end
+
+  def e_mail
+    @email
+  end
+
+  def paper
+    @note
+  end
+
+  def number
+    @id
+  end
+
   def to_s
     " User ID: #{id}\n First Name: #{first_name}\n Last Name: #{last_name}\n E-mail: #{email}\n Notes: #{note}"
   end
